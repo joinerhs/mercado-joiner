@@ -2,6 +2,47 @@
   text-align: center;
 }
 
+.encabezado{
+  display: flex;
+  justify-content: center;
+  background-color:#3b5998;
+}
+
+.division{  
+  display: grid;  
+  grid-template-columns: repeat(auto-fit, 15rem);
+  justify-content: center;
+}
+
+.info{
+display: flexbox;
+flex-flow: row wrap;
+background-color: rgb(199, 200, 247);
+}
+
+
+.img{
+  object-fit: contain;
+  width: 150px;
+  height: 150px;
+}
+
+.product_id{
+  text-decoration: none;
+  display: inline-block;
+  background-color: white;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 200px;
+  height: 300px;
+  border-width: 2px;
+  border-radius: 4%;
+  margin-top: 15px;
+  border-style: solid;
+  border-color: rgb(8, 8, 8);
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -11,6 +52,9 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.barra_buscar{
+  margin-top: 15px;
 }
 
 .App-header {

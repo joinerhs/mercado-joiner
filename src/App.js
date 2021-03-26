@@ -2,11 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import {useState,useEffect} from "react";
 import productService from "./services/list"
+import {Link } from "react-router-dom";
 
 function App() {
   const [valueImput, setValueImput] =useState("");
   const [products, setProducts] = useState([]);
-  const [toSearch, setToSearch] = useState("");
+  const [toSearch, setToSearch] = useState("deportes");
   const [offset, setOffset] = useState(0);
 
   const changeHandler = (event) => {
@@ -25,33 +26,41 @@ function App() {
 
 
   const modifyOffset = e => {
-    if(e.target.id === 'subir'){
+    if(e.target.id === 'siguiente'){
       setOffset(offset+50);
-    }else if(offset===0 && e.target.id === 'bajar'){
+    }else if(offset===0 && e.target.id === 'anterior'){
     
-    }else if(e.target.id === 'bajar'){
+    }else if(e.target.id === 'anterior'){
       setOffset (offset-50);
     }
   }
 
   return (
     <div className="App">
-      <h1>Mercado Joiner</h1>
-      <form onSubmit={submitHandler}>
+      <div className="encabezado">
+        <h1 className="titulo">Mercado Joiner</h1>
+      </div>
+      <form className="barra_buscar" onSubmit={submitHandler}>
         <input  type="search" onChange={changeHandler} value={valueImput}></input>
-      </form>      
-      {products.map(product => {
-        return(
-        <div key={product.id}>
-          <p>{product.title}</p>
-          <img src={product.thumbnail}></img>
-          <p>Precio ${product.price}</p>
-        </div>
-        
-        )
-      })}
-      <button onClick={modifyOffset} id="bajar">Bajar</button>
-      <button onClick={modifyOffset} id="subir">Subir</button>
+        <button onClick={changeHandler} value={valueImput}>Buscar</button>
+      </form> 
+      <div className="division">     
+        {products.map(product => {
+          return(
+            <Link to={`./Info:${product.id}`}>  
+              <div className="info">            
+                <div className="product_id" key={product.id}>            
+                  <p>{product.title}</p>
+                  <img className="img" src={product.thumbnail}></img>
+                  <p>Precio ${product.price}</p>
+                </div> 
+              </div>         
+            </Link>        
+          )
+        })}
+      </div>
+      <button onClick={modifyOffset} id="anterior">Anterior</button>
+      <button onClick={modifyOffset} id="siguiente">Siguiente</button>
     </div>
   );
 }
