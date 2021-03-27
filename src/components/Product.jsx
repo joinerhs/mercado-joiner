@@ -33,9 +33,7 @@ const Product = () => {
         <h1 className="titulo">Mercado Joiner</h1>
       </div>      
 
-      <div className="contenedor_">
-        {/* <div className="barra_izquierda">
-        </div> */}
+      <div className="contenedor_">        
             <div className="contenedor-img">
               <img src={product.thumbnail} alt="Imagen del producto" className="img-product"></img>
             </div>
@@ -44,11 +42,9 @@ const Product = () => {
               <h3 className="p_name">{product.title}</h3>
               <h4 classNmae="p_precio"> Precio: ${product.price}</h4>
               <h5>Vendido por: {seller}</h5>
-              <p>id {product.id}</p>
-              <p>{detail}</p>
-            </div>
-            {/* <div className="barra_derecha">
-            </div> */} 
+              <h5>Detalles del producto:</h5>
+              <p> {detail}</p>
+            </div>            
       </div> 
           
       

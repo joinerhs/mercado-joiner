@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState,useEffect} from "react";
 import productService from "./services/list"
@@ -7,7 +6,7 @@ import {Link } from "react-router-dom";
 function App() {
   const [valueImput, setValueImput] =useState("");
   const [products, setProducts] = useState([]);
-  const [toSearch, setToSearch] = useState("deportes");
+  const [toSearch, setToSearch] = useState("reloj");
   const [offset, setOffset] = useState(0);
 
   const changeHandler = (event) => {
@@ -51,7 +50,7 @@ function App() {
               <div className="info">            
                 <div className="product_id" key={product.id}>            
                   <p>{product.title}</p>
-                  <img className="img" src={product.thumbnail}></img>
+                  <img className="img" src={product.thumbnail} alt="Imagen del producto"></img>
                   <p>Precio ${product.price}</p>
                 </div> 
               </div>         

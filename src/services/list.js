@@ -4,4 +4,4 @@ const getProducts = (product, offset) => {
   .then(data => data);
 }
 
-export default{getProducts}
+export default {getProducts};
